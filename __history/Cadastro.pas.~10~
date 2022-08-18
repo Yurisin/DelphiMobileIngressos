@@ -1,0 +1,81 @@
+unit Cadastro;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Edit idHashSHA;
+
+type
+  TForm1 = class(TForm)
+    ToolBar1: TToolBar;
+    Label1: TLabel;
+    Button1: TButton;
+    LayoutImagem: TLayout;
+    Image1: TImage;
+    LayoutUsuario: TLayout;
+    Label2: TLabel;
+    EditUsuario: TEdit;
+    LayoutSenha: TLayout;
+    Senha: TLabel;
+    EditSenha: TEdit;
+    LayoutCadastrar: TLayout;
+    RoundRect1: TRoundRect;
+    Label3: TLabel;
+    LayoutRodape: TLayout;
+    Image2: TImage;
+    procedure Label3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses Login, UDM;
+
+procedure TForm1.Label3Click(Sender: TObject);
+var senha:string;
+begin
+  FormBD.FDQuery1.Close;
+  FormBD.FDQuery1.Open();
+
+  if(EditUsuario.Text = EmptyStr) or (EditSenha.Text = EmptyStr) then
+      Abort;
+    Db.FDQuery1.Append;
+    Db.FDQuery1usuario.AsString:=EditUsuario.Text;
+    Db.FDQuery1senha.AsString:= SHA1(EditSenha.Text);
+    Db.FDQuery1.Post;
+    Db.FDConnection1.CommitRetaining;
+    FormLogin.Hide;
+
+    FormLogin.Showmodal;
+    FormCadastro.close;
+
+
+
+
+  FormLogin.Show();
+end;
+
+
+function TFrmCadastro.SHA1(AsString: string) : string;
+var
+senhaSHA1:TIDhAsHsha1;
+begin
+  senhaSHA1:=TIDhASHsha1.Create;
+  try
+    Result:= senhaSHA1.hashStringAsHex(AsString);
+  finally
+    SenhaSHA1.Free;
+  end;
+end;
+
+end.

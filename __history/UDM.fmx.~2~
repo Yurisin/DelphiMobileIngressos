@@ -1,0 +1,27 @@
+object Form5: TForm5
+  Left = 0
+  Top = 0
+  Caption = 'Form5'
+  ClientHeight = 480
+  ClientWidth = 320
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    Left = 208
+    Top = 32
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\ybotelho.UNIVEL\Desktop\Projeto Correto\BD\Ban' +
+        'co.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    Left = 72
+    Top = 32
+  end
+end

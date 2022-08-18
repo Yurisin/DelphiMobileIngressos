@@ -1,0 +1,59 @@
+object FormBD: TFormBD
+  Left = 0
+  Top = 0
+  Caption = 'Form5'
+  ClientHeight = 480
+  ClientWidth = 320
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object FDQueryPessoa: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from pessoa')
+    Left = 208
+    Top = 32
+    object FDQueryPessoaid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryPessoanome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryPessoausuario: TStringField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 60
+    end
+    object FDQueryPessoasenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 10
+    end
+    object FDQueryPessoaendereco: TStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 60
+    end
+    object FDQueryPessoatelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 15
+    end
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\ybotelho.UNIVEL\Desktop\Projeto Correto\BD\Ban' +
+        'co.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    Left = 72
+    Top = 32
+  end
+end

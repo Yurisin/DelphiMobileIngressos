@@ -1,0 +1,13 @@
+begin
+  dm.FDQueryPessoa.Close;
+  dm.FDQueryPessoa.Open();
+
+  if (Edit1.Text = EmptyStr) or (Edit2.Text = EmptyStr) then
+  Abort;
+
+  dm.FDQueryPessoa.Append;
+  dm.FDQueryPessoaUsuario.AsString := Edit1.Text;
+  dm.FDQueryPessoaSenha.AsString := Edit2.Text;
+  dm.FDQueryPessoa.Post;
+  dm.FDConnection1.CommitRetaining;
+end;

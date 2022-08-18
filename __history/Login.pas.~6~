@@ -1,0 +1,45 @@
+unit Login;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts, FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls;
+
+type
+  TFormLogin = class(TForm)
+    LayoutImagem: TLayout;
+    Image1: TImage;
+    LayoutUsuario: TLayout;
+    Label2: TLabel;
+    Edit1: TEdit;
+    LayoutSenha: TLayout;
+    Senha: TLabel;
+    Edit2: TEdit;
+    LayoutLogin: TLayout;
+    RoundRect1: TRoundRect;
+    Label3: TLabel;
+    LayoutRodape: TLayout;
+    Image2: TImage;
+    procedure Label3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLogin: TFormLogin;
+
+implementation
+
+{$R *.fmx}
+uses Ingressos;
+
+procedure TFormLogin.Label3Click(Sender: TObject);
+begin
+  FormIngresso.Show();
+end;
+
+end.

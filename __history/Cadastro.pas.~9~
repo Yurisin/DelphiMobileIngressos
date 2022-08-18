@@ -1,0 +1,53 @@
+unit Cadastro;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Edit;
+
+type
+  TForm1 = class(TForm)
+    ToolBar1: TToolBar;
+    Label1: TLabel;
+    Button1: TButton;
+    LayoutImagem: TLayout;
+    Image1: TImage;
+    LayoutUsuario: TLayout;
+    Label2: TLabel;
+    Edit1: TEdit;
+    LayoutSenha: TLayout;
+    Senha: TLabel;
+    Edit2: TEdit;
+    LayoutCadastrar: TLayout;
+    RoundRect1: TRoundRect;
+    Label3: TLabel;
+    LayoutRodape: TLayout;
+    Image2: TImage;
+    procedure Label3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses Login, UDM;
+
+procedure TForm1.Label3Click(Sender: TObject);
+var senha:string;
+begin
+FormBD.FDQuery1.Close;
+FormBD.FDQuery1.Open();
+
+  FormLogin.Show();
+end;
+
+end.
