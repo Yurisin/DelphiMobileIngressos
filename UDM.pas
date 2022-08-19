@@ -5,39 +5,38 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.FMXUI.Wait, Data.DB,
-  FireDAC.Comp.Client, FireDAC.Comp.DataSet, FireDAC.Phys.SQLite,
-  FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
-  FireDAC.Phys.SQLiteWrapper.Stat;
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
+  FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, IOUtils;
 
 type
   TFormBD = class(TForm)
-    FDQueryPessoa: TFDQuery;
     FDConnection1: TFDConnection;
+    FDQueryPessoa: TFDQuery;
+    FDQueryIngresso: TFDQuery;
+    FDQueryIngressoid: TFDAutoIncField;
+    FDQueryIngressonome: TStringField;
+    FDQueryIngressovalor: TBCDField;
+    FDQueryIngressoimg_ingresso: TBlobField;
+    FDQueryIngressoquantidade: TIntegerField;
     FDQueryPessoaid: TFDAutoIncField;
     FDQueryPessoanome: TStringField;
-    FDQueryPessoausuario: TStringField;
-    FDQueryPessoasenha: TStringField;
-    FDQueryPessoaendereco: TStringField;
-    FDQueryPessoatelefone: TStringField;
-    FDQueryIngresso: TFDQuery;
     FDQueryPessoacpf: TStringField;
-    FDQueryPessoacelular: TStringField;
+    FDQueryPessoatelefone: TStringField;
     FDQueryPessoacep: TStringField;
+    FDQueryPessoaendereco: TStringField;
     FDQueryPessoacidade: TStringField;
     FDQueryPessoauf: TStringField;
     FDQueryPessoabairro: TStringField;
     FDQueryPessoaemail: TStringField;
-    FDQueryIngressoid: TFDAutoIncField;
-    FDQueryIngressodataevento: TDateTimeField;
-    FDQueryIngressonome: TStringField;
-    FDQueryIngressovalor: TBCDField;
-    FDQueryIngressoquantidade: TIntegerField;
-    procedure FDConnection1BeforeConnect(Sender: TObject);
+    FDQueryPessoausuario: TStringField;
+    FDQueryPessoaimg_usuario: TBlobField;
+    FDQueryPessoasenha: TStringField;
     procedure FDConnection1AfterConnect(Sender: TObject);
+    procedure FDConnection1BeforeConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,23 +58,24 @@ begin
            'id integer not null primary key autoincrement, ' + //
            'nome varchar(40),                              ' + //
            'cpf varchar(11),                               ' + //
-           'celular varchar(13),                           ' + //
+           'telefone varchar(13),                           ' + //
            'cep varchar(10),                               ' + //
            'endereco varchar(60),                          ' + //
            'cidade varchar(60),                            ' + //
            'uf char(2),                                    ' + //
            'bairro varchar(60),                            ' + //
+           'usuario varchar(60),                             ' + //
            'email varchar(60),                             ' + //
            'senha varchar(40),                            ' + //
-           'img_usuario blob ';
+           'img_usuario blob)';
   FDConnection1.ExecSQL(strSQL);
 
   strSQL := EmptyStr;
-  strSQL := ' create table IF NOT EXISTS produto( ' + //
+  strSQL := ' create table IF NOT EXISTS ingresso( ' + //
             ' id integer not null primary key autoincrement, ' + //
             ' dataevento datetime,                           ' + //
             ' nome varchar(40),                              ' + //
-            ' valor numeric(14,2)                            ' + //
+            ' valor numeric(14,2),                            ' + //
             ' quantidade integer,                            ' + //
             ' img_ingresso blob) ';
   FDConnection1.ExecSQL(strSQL);
@@ -93,8 +93,13 @@ begin
   (System.IOutils.TPath.GetDocumentPath,
     'Banco.db');
 {$ENDIF}
+{$IFDEF MSWINDOWS}
+  strPath := System.IOUtils.TPath.Combine('D:\Users\ybotelho.UNIVEL\Desktop\EvAk - Mobile\BD','Banco.db');
+{$ENDIF}
   FDConnection1.Params.Values['UseUnicode'] := 'False';
   FDConnection1.Params.Values['DATABASE'] := strPath;
 end;
+
+
 
 end.

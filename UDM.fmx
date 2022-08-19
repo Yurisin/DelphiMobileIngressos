@@ -1,19 +1,33 @@
 object FormBD: TFormBD
   Left = 0
   Top = 0
-  Caption = 'Form5'
+  Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 320
+  ClientWidth = 640
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 3
+  DesignerMasterStyle = 0
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\ybotelho.UNIVEL\Desktop\EvAk - Mobile\BD\Banco' +
+        '.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    AfterConnect = FDConnection1AfterConnect
+    BeforeConnect = FDConnection1BeforeConnect
+    Left = 32
+    Top = 16
+  end
   object FDQueryPessoa: TFDQuery
+    Active = True
     Connection = FDConnection1
     SQL.Strings = (
       'select * from pessoa')
-    Left = 208
-    Top = 32
+    Left = 112
+    Top = 16
     object FDQueryPessoaid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -25,40 +39,25 @@ object FormBD: TFormBD
       Origin = 'nome'
       Size = 40
     end
-    object FDQueryPessoausuario: TStringField
-      FieldName = 'usuario'
-      Origin = 'usuario'
-      Size = 60
-    end
-    object FDQueryPessoasenha: TStringField
-      FieldName = 'senha'
-      Origin = 'senha'
-      Size = 10
-    end
-    object FDQueryPessoaendereco: TStringField
-      FieldName = 'endereco'
-      Origin = 'endereco'
-      Size = 60
-    end
-    object FDQueryPessoatelefone: TStringField
-      FieldName = 'telefone'
-      Origin = 'telefone'
-      Size = 15
-    end
     object FDQueryPessoacpf: TStringField
       FieldName = 'cpf'
       Origin = 'cpf'
       Size = 11
     end
-    object FDQueryPessoacelular: TStringField
-      FieldName = 'celular'
-      Origin = 'celular'
+    object FDQueryPessoatelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
       Size = 13
     end
     object FDQueryPessoacep: TStringField
       FieldName = 'cep'
       Origin = 'cep'
       Size = 10
+    end
+    object FDQueryPessoaendereco: TStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 60
     end
     object FDQueryPessoacidade: TStringField
       FieldName = 'cidade'
@@ -81,34 +80,33 @@ object FormBD: TFormBD
       Origin = 'email'
       Size = 60
     end
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      
-        'Database=D:\Users\ybotelho.UNIVEL\Desktop\EvAk - Mobile\BD\Banco' +
-        '.db'
-      'LockingMode=Normal'
-      'DriverID=SQLite')
-    Connected = True
-    AfterConnect = FDConnection1AfterConnect
-    BeforeConnect = FDConnection1BeforeConnect
-    Left = 72
-    Top = 32
+    object FDQueryPessoausuario: TStringField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 60
+    end
+    object FDQueryPessoaimg_usuario: TBlobField
+      FieldName = 'img_usuario'
+      Origin = 'img_usuario'
+    end
+    object FDQueryPessoasenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 10
+    end
   end
   object FDQueryIngresso: TFDQuery
+    Active = True
     Connection = FDConnection1
     SQL.Strings = (
       'select * from ingresso')
-    Left = 208
-    Top = 96
+    Left = 64
+    Top = 72
     object FDQueryIngressoid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
-    end
-    object FDQueryIngressodataevento: TDateTimeField
-      FieldName = 'dataevento'
-      Origin = 'dataevento'
+      ReadOnly = True
     end
     object FDQueryIngressonome: TStringField
       FieldName = 'nome'
@@ -120,6 +118,10 @@ object FormBD: TFormBD
       Origin = 'valor'
       Precision = 14
       Size = 2
+    end
+    object FDQueryIngressoimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
     end
     object FDQueryIngressoquantidade: TIntegerField
       FieldName = 'quantidade'

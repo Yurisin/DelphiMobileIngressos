@@ -17,12 +17,12 @@ type
     labelNomeEvento: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     LayoutRodape: TLayout;
     Image2: TImage;
     LayoutVerIngressos: TLayout;
     RoundRect1: TRoundRect;
     Label6: TLabel;
+    Label4: TLabel;
     procedure Label6Click(Sender: TObject);
   private
     { Private declarations }

@@ -8186,7 +8186,7 @@ object FormIngresso: TFormIngresso
       Size.Height = 24.000000000000000000
       Size.PlatformDefault = False
       Text = 'Evento presencial em Black Cap Eventos - Cascavel,PR'
-      TabOrder = 1
+      TabOrder = 2
     end
     object Label3: TLabel
       Align = Top
@@ -8197,18 +8197,17 @@ object FormIngresso: TFormIngresso
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       Text = 'Data'
-      TabOrder = 2
+      TabOrder = 3
     end
     object Label4: TLabel
       Align = Top
       StyledSettings = [Family, Style, FontColor]
       Position.Y = 80.000000000000000000
       Size.Width = 320.000000000000000000
-      Size.Height = 23.000000000000000000
+      Size.Height = 24.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 11.000000000000000000
-      Text = 's'#225'b, 28 out - 2022 - 23:00'
-      TabOrder = 3
+      Text = '28/10 - S'#225'bado'
+      TabOrder = 1
     end
   end
   object LayoutRodape: TLayout

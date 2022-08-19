@@ -40,10 +40,10 @@ implementation
 
 {$R *.fmx}
 
-uses Login, UDM;
+uses Login, UDM, Ingressos;
 
 procedure TFormCadastro.Label3Click(Sender: TObject);
-var senha:string;
+  var senha:string;
 begin
   FormBD.FDQueryPessoa.Close;
   FormBD.FDQueryPessoa.Open();
@@ -52,19 +52,16 @@ begin
   if(EditEmail.Text = EmptyStr) or (EditSenha.Text = EmptyStr) then
       Abort;
     FormBD.FDQueryPessoa.Append;
-    FormBD.FDQueryPessoaUsuario.AsString:=EditEmail.Text;
+    FormBD.FDQueryPessoaEmail.AsString:=EditEmail.Text;
     FormBD.FDQueryPessoaSenha.AsString:= SHA1(EditSenha.Text);
     FormBD.FDQueryPessoa.Post;
     FormBD.FDConnection1.CommitRetaining;
+      FormCadastro.Hide;
 
-    ShowMessage('Cadastrado com Sucesso');
+      ShowMessage('Cadastrado com Sucesso');
 
-    FormLogin.Hide;
-
-    FormLogin.Showmodal;
-    FormCadastro.close;
-
-  FormLogin.Show();
+      FormIngresso.Showmodal;
+      FormCadastro.close;
 end;
 
 
