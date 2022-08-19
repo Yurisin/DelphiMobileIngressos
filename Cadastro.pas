@@ -16,7 +16,7 @@ type
     Image1: TImage;
     LayoutUsuario: TLayout;
     Label2: TLabel;
-    EditUsuario: TEdit;
+    EditEmail: TEdit;
     LayoutSenha: TLayout;
     Senha: TLabel;
     EditSenha: TEdit;
@@ -49,10 +49,10 @@ begin
   FormBD.FDQueryPessoa.Open();
 
 
-  if(EditUsuario.Text = EmptyStr) or (EditSenha.Text = EmptyStr) then
+  if(EditEmail.Text = EmptyStr) or (EditSenha.Text = EmptyStr) then
       Abort;
     FormBD.FDQueryPessoa.Append;
-    FormBD.FDQueryPessoaUsuario.AsString:=EditUsuario.Text;
+    FormBD.FDQueryPessoaUsuario.AsString:=EditEmail.Text;
     FormBD.FDQueryPessoaSenha.AsString:= SHA1(EditSenha.Text);
     FormBD.FDQueryPessoa.Post;
     FormBD.FDConnection1.CommitRetaining;

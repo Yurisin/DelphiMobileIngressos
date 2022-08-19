@@ -43,9 +43,9 @@ Coordinates=127,78,110,36
 []
 Coordinates=243,78,91,36
 
-[EditUsuario]
-Coordinates=10,78,44,58
-
 [EditSenha]
 Coordinates=333,10,44,58
+
+[EditEmail]
+Coordinates=10,78,44,58
 

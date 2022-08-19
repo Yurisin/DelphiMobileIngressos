@@ -307,7 +307,7 @@ object FormCadastro: TFormCadastro
       Text = 'Usu'#225'rio'
       TabOrder = 0
     end
-    object EditUsuario: TEdit
+    object EditEmail: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Top
       TabOrder = 1
@@ -315,7 +315,7 @@ object FormCadastro: TFormCadastro
       Size.Width = 320.000000000000000000
       Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
-      TextPrompt = 'Digite seu us'#225'rio'
+      TextPrompt = 'Digite seu email'
     end
   end
   object LayoutSenha: TLayout

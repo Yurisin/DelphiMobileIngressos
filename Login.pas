@@ -13,7 +13,7 @@ type
     Image1: TImage;
     LayoutUsuario: TLayout;
     Label2: TLabel;
-    EditUsuario: TEdit;
+    EditEmail: TEdit;
     LayoutSenha: TLayout;
     Senha: TLabel;
     EditSenha: TEdit;
@@ -22,6 +22,7 @@ type
     Label3: TLabel;
     LayoutRodape: TLayout;
     Image2: TImage;
+    Image3: TImage;
     procedure Label3Click(Sender: TObject);
   private
     { Private declarations }
@@ -41,31 +42,22 @@ uses Ingressos, UDM;
 
 procedure TFormLogin.Label3Click(Sender: TObject);
 var
-sql:String;
+  senha : string;
 begin
-    sql := 'select count(1) from pessoa ' +
-    ' where usuario = ' + (EditUsuario.Text) +
-    ' and senha = ' + SHA1(EditSenha.Text)   ;
-begin
-    FormBD.FDQueryPessoa.Close;
-    FormBD.FDQueryPessoa.Open();
+    senha := SHA1(EditSenha.Text);
+    if (EditEmail.Text = FormBD.FDQueryPessoaemail.AsString) and
+      (senha = FormBD.FDQueryPessoasenha.AsString) then
+    begin
+      if not Assigned(FormIngresso) then
+      Application.CreateForm(TFormIngresso, FormIngresso);
+      FormIngresso.Show;
+    end
+    else
+    begin
+      ShowMessage('Login ou Senha Incorreto');
+    end;
 
-    if FormBD.FDQueryPessoa.Locate('usuario', EditUsuario.Text) and
-    FormBD.FDQueryPessoa.Locate('senha', SHA1(EditUsuario.Text)) then
-begin
-    Showmessage('Login Efetuado com Sucesso!');
-    FormLogin := TFormLogin.Create(Application) ;
-    FormIngresso.Show;
-    FormLogin.Hide;
-    abort;
-end
-else
-abort;
-    Showmessage('nome ou senha incorretos');
-    editSenha.Text:='';
-    editUsuario.Text:='';
-    editUsuario.SetFocus;
-  end;
+
  end;
 
 

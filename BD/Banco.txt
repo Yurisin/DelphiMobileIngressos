@@ -1,0 +1,25 @@
+create table pessoa(
+id integer not null primary key autoincrement, 
+nome varchar(40),
+cpf varchar(11),
+celular varchar(13),
+cep varchar(10),
+endereco varchar(60),
+cidade varchar(60),
+uf char(2),
+bairro varchar(60),
+email varchar(60),
+usuario varchar(60),
+senha varchar(10));
+
+create table ingresso(
+id integer not null primary key autoincrement, 
+dataevento datetime,
+nome varchar(40),
+valor numeric(14,2),
+quantidade integer);
+
+
+select * from pessoa
+
+select * from ingresso
