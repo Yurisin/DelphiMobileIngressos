@@ -17,11 +17,6 @@ type
     FDConnection1: TFDConnection;
     FDQueryPessoa: TFDQuery;
     FDQueryIngresso: TFDQuery;
-    FDQueryIngressoid: TFDAutoIncField;
-    FDQueryIngressonome: TStringField;
-    FDQueryIngressovalor: TBCDField;
-    FDQueryIngressoimg_ingresso: TBlobField;
-    FDQueryIngressoquantidade: TIntegerField;
     FDQueryPessoaid: TFDAutoIncField;
     FDQueryPessoanome: TStringField;
     FDQueryPessoacpf: TStringField;
@@ -35,6 +30,12 @@ type
     FDQueryPessoausuario: TStringField;
     FDQueryPessoaimg_usuario: TBlobField;
     FDQueryPessoasenha: TStringField;
+    FDQueryIngressoid: TFDAutoIncField;
+    FDQueryIngressonome: TStringField;
+    FDQueryIngressovalor: TBCDField;
+    FDQueryIngressodescricao: TStringField;
+    FDQueryIngressoimg_ingresso: TBlobField;
+    FDQueryIngressoquantidade: TIntegerField;
     procedure FDConnection1AfterConnect(Sender: TObject);
     procedure FDConnection1BeforeConnect(Sender: TObject);
   private
@@ -64,7 +65,7 @@ begin
            'cidade varchar(60),                            ' + //
            'uf char(2),                                    ' + //
            'bairro varchar(60),                            ' + //
-           'usuario varchar(60),                             ' + //
+           'usuario varchar(60),                           ' + //
            'email varchar(60),                             ' + //
            'senha varchar(40),                            ' + //
            'img_usuario blob)';

@@ -285,6 +285,10 @@
             <Form>FormBD</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Principal.pas">
+            <Form>FormHome</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -329,6 +333,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                     <Platform Name="Win32">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
                         <RemoteName>Banco.db</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -390,6 +395,13 @@
                     </Platform>
                     <Platform Name="Win64">
                         <RemoteName>Banco.db</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Release\Project1.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>Project1.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

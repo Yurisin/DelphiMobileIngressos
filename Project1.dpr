@@ -7,7 +7,8 @@ uses
   Login in 'Login.pas' {FormLogin},
   Ingressos in 'Ingressos.pas' {FormIngresso},
   Comprar in 'Comprar.pas' {FormComprar},
-  UDM in 'UDM.pas' {FormBD};
+  UDM in 'UDM.pas' {FormBD},
+  Principal in 'Principal.pas' {FormHome};
 
 {$R *.res}
 
@@ -18,5 +19,6 @@ begin
   Application.CreateForm(TFormIngresso, FormIngresso);
   Application.CreateForm(TFormComprar, FormComprar);
   Application.CreateForm(TFormBD, FormBD);
+  Application.CreateForm(TFormHome, FormHome);
   Application.Run;
 end.

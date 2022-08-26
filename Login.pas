@@ -37,27 +37,33 @@ var
 implementation
 
 {$R *.fmx}
-uses Ingressos, UDM;
+uses Ingressos, UDM, Cadastro, Principal;
 
 
 procedure TFormLogin.Label3Click(Sender: TObject);
 var
-  senha : string;
+  senha:string;
 begin
     senha := SHA1(EditSenha.Text);
-    if (EditEmail.Text = FormBD.FDQueryPessoaemail.AsString) and
-      (senha = FormBD.FDQueryPessoasenha.AsString) then
+    FormBD.FDQueryPessoa.Close;
+    FormBD.FDQueryPessoa.ParamByName('pNome').AsString := EditEmail.Text;
+    FormBD.FDQueryPessoa.Open();
+
+    if not (FormBD.FDQueryPessoa.IsEmpty) and (FormBD.FDQueryPessoasenha.AsString = senha) then
     begin
-      if not Assigned(FormIngresso) then
-      Application.CreateForm(TFormIngresso, FormIngresso);
-      FormIngresso.Show;
+      if not Assigned(FormHome) then
+      Application.CreateForm(TFormHome, FormHome);
+      ShowMessage('OK');
+      FormHome.Show;
+
+
     end
     else
     begin
-      ShowMessage('Login ou Senha Incorreto');
+    ShowMessage('Login ou Senha Incorreto');
+    abort;
+
     end;
-
-
  end;
 
 

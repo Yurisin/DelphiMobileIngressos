@@ -1,0 +1,88 @@
+object FormBD: TFormBD
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\ybotelho.UNIVEL\Desktop\EvAk - Mobile\BD\Banco' +
+        '.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    AfterConnect = FDConnection1AfterConnect
+    BeforeConnect = FDConnection1BeforeConnect
+    Left = 32
+    Top = 16
+  end
+  object FDQueryPessoa: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from pessoa'
+      'where email =:pNome')
+    Left = 152
+    Top = 32
+    ParamData = <
+      item
+        Name = 'PNOME'
+        DataType = ftString
+        ParamType = ptInput
+        Value = ''
+      end>
+    object FDQueryPessoaid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryPessoaemail: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 60
+    end
+    object FDQueryPessoasenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 10
+    end
+  end
+  object FDQueryIngresso: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ingresso')
+    Left = 64
+    Top = 72
+    object FDQueryIngressoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryIngressonome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryIngressovalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryIngressoimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
+    end
+    object FDQueryIngressoquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+  end
+end

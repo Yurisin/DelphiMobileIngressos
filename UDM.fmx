@@ -7,7 +7,7 @@ object FormBD: TFormBD
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 3
   object FDConnection1: TFDConnection
     Params.Strings = (
       
@@ -22,17 +22,23 @@ object FormBD: TFormBD
     Top = 16
   end
   object FDQueryPessoa: TFDQuery
-    Active = True
     Connection = FDConnection1
     SQL.Strings = (
-      'select * from pessoa')
-    Left = 112
-    Top = 16
+      'select * from pessoa'
+      'where email =:pNome')
+    Left = 152
+    Top = 32
+    ParamData = <
+      item
+        Name = 'PNOME'
+        DataType = ftString
+        ParamType = ptInput
+        Value = ''
+      end>
     object FDQueryPessoaid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
     end
     object FDQueryPessoanome: TStringField
       FieldName = 'nome'
@@ -92,11 +98,10 @@ object FormBD: TFormBD
     object FDQueryPessoasenha: TStringField
       FieldName = 'senha'
       Origin = 'senha'
-      Size = 10
+      Size = 300
     end
   end
   object FDQueryIngresso: TFDQuery
-    Active = True
     Connection = FDConnection1
     SQL.Strings = (
       'select * from ingresso')
@@ -106,7 +111,6 @@ object FormBD: TFormBD
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
     end
     object FDQueryIngressonome: TStringField
       FieldName = 'nome'
@@ -118,6 +122,11 @@ object FormBD: TFormBD
       Origin = 'valor'
       Precision = 14
       Size = 2
+    end
+    object FDQueryIngressodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 300
     end
     object FDQueryIngressoimg_ingresso: TBlobField
       FieldName = 'img_ingresso'
