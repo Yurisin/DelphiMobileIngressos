@@ -16,6 +16,7 @@ object FormBD: TFormBD
       'LockingMode=Normal'
       'DriverID=SQLite')
     Connected = True
+    LoginPrompt = False
     AfterConnect = FDConnection1AfterConnect
     BeforeConnect = FDConnection1BeforeConnect
     Left = 32
@@ -39,6 +40,7 @@ object FormBD: TFormBD
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQueryPessoanome: TStringField
       FieldName = 'nome'
@@ -111,6 +113,7 @@ object FormBD: TFormBD
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQueryIngressonome: TStringField
       FieldName = 'nome'
@@ -135,6 +138,62 @@ object FormBD: TFormBD
     object FDQueryIngressoquantidade: TIntegerField
       FieldName = 'quantidade'
       Origin = 'quantidade'
+    end
+    object FDQueryIngressofavorito: TStringField
+      FieldName = 'favorito'
+      Origin = 'favorito'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object FDQueryFavoritos: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ingresso where id = :pIdIngresso'
+      'and favorito = '#39'S'#39)
+    Left = 152
+    Top = 104
+    ParamData = <
+      item
+        Name = 'PIDINGRESSO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 1
+      end>
+    object FDQueryFavoritosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryFavoritosnome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryFavoritosvalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryFavoritosdescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 300
+    end
+    object FDQueryFavoritosimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
+    end
+    object FDQueryFavoritosquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object FDQueryFavoritosfavorito: TStringField
+      FieldName = 'favorito'
+      Origin = 'favorito'
+      FixedChar = True
+      Size = 1
     end
   end
 end

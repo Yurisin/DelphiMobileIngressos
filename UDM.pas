@@ -36,6 +36,15 @@ type
     FDQueryIngressodescricao: TStringField;
     FDQueryIngressoimg_ingresso: TBlobField;
     FDQueryIngressoquantidade: TIntegerField;
+    FDQueryFavoritos: TFDQuery;
+    FDQueryFavoritosid: TFDAutoIncField;
+    FDQueryFavoritosnome: TStringField;
+    FDQueryFavoritosvalor: TBCDField;
+    FDQueryFavoritosdescricao: TStringField;
+    FDQueryFavoritosimg_ingresso: TBlobField;
+    FDQueryFavoritosquantidade: TIntegerField;
+    FDQueryFavoritosfavorito: TStringField;
+    FDQueryIngressofavorito: TStringField;
     procedure FDConnection1AfterConnect(Sender: TObject);
     procedure FDConnection1BeforeConnect(Sender: TObject);
   private

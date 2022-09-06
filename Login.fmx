@@ -399,8 +399,8 @@ object FormLogin: TFormLogin
             EF151576A1EB1B040000000049454E44AE426082}
         end>
       Align = Right
-      Position.X = 248.000000000000000000
-      Size.Width = 72.000000000000000000
+      Position.X = 272.000000000000000000
+      Size.Width = 48.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
     end

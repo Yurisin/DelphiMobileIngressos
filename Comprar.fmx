@@ -17,22 +17,13 @@ object FormComprar: TFormComprar
     object Label1: TLabel
       Align = Client
       StyledSettings = [Family, Style, FontColor]
-      Size.Width = 272.000000000000000000
+      Size.Width = 320.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Matue - Cascavel, PR'
       TabOrder = 0
-    end
-    object Button1: TButton
-      Align = Left
-      Size.Width = 48.000000000000000000
-      Size.Height = 48.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'drawertoolbutton'
-      TabOrder = 1
-      Text = 'Button1'
     end
   end
   object Layout1: TLayout

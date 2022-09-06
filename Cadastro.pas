@@ -11,7 +11,6 @@ type
   TFormCadastro = class(TForm)
     ToolBar1: TToolBar;
     Label1: TLabel;
-    Button1: TButton;
     LayoutImagem: TLayout;
     Image1: TImage;
     LayoutUsuario: TLayout;
@@ -26,6 +25,7 @@ type
     LayoutRodape: TLayout;
     Image2: TImage;
     procedure Label3Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +41,12 @@ implementation
 {$R *.fmx}
 
 uses Login, UDM, Ingressos, Principal;
+
+procedure TFormCadastro.Image2Click(Sender: TObject);
+begin
+  FormLogin.Show;
+  FormCadastro.Hide();
+end;
 
 procedure TFormCadastro.Label3Click(Sender: TObject);
   var senha:string;

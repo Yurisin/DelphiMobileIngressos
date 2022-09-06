@@ -1,0 +1,38 @@
+unit EditUsuario;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects;
+
+type
+  TForm2 = class(TForm)
+    LayoutTop: TLayout;
+    LayoutRodape: TLayout;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image1: TImage;
+    Layout1: TLayout;
+    LabelEditNome: TLabel;
+    Edit1: TEdit;
+    LabelEditSobrenome: TLabel;
+    Edit2: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.fmx}
+
+end.

@@ -4,9 +4,6 @@ Coordinates=292,146,90,36
 [RoundRect1]
 Coordinates=196,146,86,36
 
-[Button1]
-Coordinates=203,10,59,58
-
 [Image1]
 Coordinates=387,10,57,58
 
@@ -41,7 +38,7 @@ Coordinates=247,78,98,36
 Coordinates=127,78,110,36
 
 []
-Coordinates=243,78,91,36
+Coordinates=203,10,59,58
 
 [EditSenha]
 Coordinates=333,10,44,58

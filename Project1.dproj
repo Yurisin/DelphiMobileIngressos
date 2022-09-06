@@ -289,6 +289,14 @@
             <Form>FormHome</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Usuario.pas">
+            <Form>FormUsuario</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="EditUsuario.pas">
+            <Form>FormEditUsuario</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

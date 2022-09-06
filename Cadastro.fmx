@@ -17,22 +17,13 @@ object FormCadastro: TFormCadastro
     object Label1: TLabel
       Align = Client
       StyledSettings = [Family, Style, FontColor]
-      Size.Width = 272.000000000000000000
+      Size.Width = 320.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.HorzAlign = Center
       Text = 'Cadastre-se Aqui'
       TabOrder = 0
-    end
-    object Button1: TButton
-      Align = Left
-      Size.Width = 48.000000000000000000
-      Size.Height = 48.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'drawertoolbutton'
-      TabOrder = 1
-      Text = 'Button1'
     end
   end
   object LayoutImagem: TLayout
@@ -419,10 +410,11 @@ object FormCadastro: TFormCadastro
             EF151576A1EB1B040000000049454E44AE426082}
         end>
       Align = Right
-      Position.X = 248.000000000000000000
-      Size.Width = 72.000000000000000000
+      Position.X = 264.000000000000000000
+      Size.Width = 56.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image2Click
     end
   end
 end

@@ -11,7 +11,6 @@ type
   TFormComprar = class(TForm)
     ToolBar1: TToolBar;
     Label1: TLabel;
-    Button1: TButton;
     Layout1: TLayout;
     Label2: TLabel;
     Label3: TLabel;

@@ -11,7 +11,6 @@ type
   TFormIngresso = class(TForm)
     ToolBar1: TToolBar;
     Label1: TLabel;
-    Button1: TButton;
     Image1: TImage;
     LayoutIngresso: TLayout;
     labelNomeEvento: TLabel;
@@ -23,6 +22,10 @@ type
     RoundRect1: TRoundRect;
     Label6: TLabel;
     Label4: TLabel;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
     procedure Label6Click(Sender: TObject);
   private
     { Private declarations }
