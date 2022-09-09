@@ -29,6 +29,7 @@ type
     RoundRect1: TRoundRect;
     Label1: TLabel;
     procedure Image6Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,12 +43,19 @@ implementation
 
 {$R *.fmx}
 
-uses Login, UDM, Ingressos, Principal, Cadastro;
+uses Login, UDM, Ingressos, Principal, Usuario, Cadastro;
+
+procedure TFormEditUsuario.Image5Click(Sender: TObject);
+begin
+  FormUsuario.Show;
+  FormEditUsuario.Hide();
+end;
 
 procedure TFormEditUsuario.Image6Click(Sender: TObject);
 begin
-  FormLogin.Show;
+  FormHome.Show;
   FormCadastro.Hide();
+  FormEditUsuario.Hide();
 end;
 
 end.

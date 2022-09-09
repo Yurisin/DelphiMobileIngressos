@@ -10,7 +10,8 @@ uses
   UDM in 'UDM.pas' {FormBD},
   Principal in 'Principal.pas' {FormHome},
   Usuario in 'Usuario.pas' {FormUsuario},
-  EditUsuario in 'EditUsuario.pas' {FormEditUsuario};
+  EditUsuario in 'EditUsuario.pas' {FormEditUsuario},
+  Favoritos in 'Favoritos.pas' {FormFavoritos};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(TFormHome, FormHome);
   Application.CreateForm(TFormUsuario, FormUsuario);
   Application.CreateForm(TFormEditUsuario, FormEditUsuario);
+  Application.CreateForm(TFormFavoritos, FormFavoritos);
   Application.Run;
 end.

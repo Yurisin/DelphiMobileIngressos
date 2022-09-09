@@ -45,6 +45,14 @@ type
     FDQueryFavoritosquantidade: TIntegerField;
     FDQueryFavoritosfavorito: TStringField;
     FDQueryIngressofavorito: TStringField;
+    FDQueryListaFavoritos: TFDQuery;
+    FDQueryListaFavoritosid: TFDAutoIncField;
+    FDQueryListaFavoritosnome: TStringField;
+    FDQueryListaFavoritosvalor: TBCDField;
+    FDQueryListaFavoritosdescricao: TStringField;
+    FDQueryListaFavoritosimg_ingresso: TBlobField;
+    FDQueryListaFavoritosquantidade: TIntegerField;
+    FDQueryListaFavoritosfavorito: TStringField;
     procedure FDConnection1AfterConnect(Sender: TObject);
     procedure FDConnection1BeforeConnect(Sender: TObject);
   private

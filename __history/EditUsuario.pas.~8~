@@ -1,0 +1,53 @@
+unit EditUsuario;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects;
+
+type
+  TFormEditUsuario = class(TForm)
+    LayoutTop: TLayout;
+    LayoutRodape: TLayout;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image1: TImage;
+    Layout1: TLayout;
+    LabelEditNome: TLabel;
+    EditNome: TEdit;
+    LabelEditEmail: TLabel;
+    EditEmail: TEdit;
+    LabelEditCpf: TLabel;
+    EditCPF: TEdit;
+    LabelEditTelefone: TLabel;
+    EditTelefone: TEdit;
+    RoundRect1: TRoundRect;
+    Label1: TLabel;
+    procedure Image6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormEditUsuario: TFormEditUsuario;
+
+implementation
+
+{$R *.fmx}
+
+uses Login, UDM, Ingressos, Principal, Cadastro;
+
+procedure TFormEditUsuario.Image6Click(Sender: TObject);
+begin
+  FormHome.Show;
+  FormCadastro.Hide();
+end;
+
+end.

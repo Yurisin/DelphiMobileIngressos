@@ -1087,6 +1087,7 @@ object FormEditUsuario: TFormEditUsuario
             00000000A0021326FC3F37AB7EA98BB116E40000000049454E44AE426082}
         end>
       Align = Left
+      OnClick = Image5Click
     end
     object Image6: TImage
       MultiResBitmap = <

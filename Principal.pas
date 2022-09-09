@@ -27,6 +27,7 @@ type
       valor: double);
     procedure GetProdutosBase;
     procedure AddFavoritos(Sender: TObject);
+    procedure RemoveFavoritos(Sender: TObject);
     function favorito(id: integer) : boolean;
   public
     { Public declarations }
@@ -53,6 +54,18 @@ begin
   FormBD.FDQueryIngressofavorito.AsString := 'S';
   FormBD.FDQueryIngresso.Post;
   ShowMessage('Adicionado ao seus favoritos');
+end;
+
+procedure TFormHome.RemoveFavoritos(Sender: TObject);
+var
+  AId: string;
+begin
+  AId:= (TRectangle(Sender).TagString);
+  FormBD.FDQueryIngresso.Locate('id', AId, []);
+  FormBD.FDQueryIngresso.Edit;
+  FormBD.FDQueryIngressofavorito.AsString := 'N';
+  FormBD.FDQueryIngresso.Post;
+  ShowMessage('Removido dos seus favoritos');
 end;
 
 procedure TFormHome.CarregarListaProdutos(id: integer; nome, descricao: string;
@@ -191,7 +204,7 @@ begin
     Position.y := 5;
     name := 'imgheartNoSel' + IntToStr(id);
     TagString := IntToStr(id);
-    OnClick := AddFavoritos;
+    OnClick := RemoveFavoritos;
     Visible := true;
     rect.AddObject(img);
   end;

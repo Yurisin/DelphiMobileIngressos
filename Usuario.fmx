@@ -1393,6 +1393,7 @@ object FormUsuario: TFormUsuario
             82}
         end>
       Align = Center
+      OnClick = Image6Click
     end
   end
 end

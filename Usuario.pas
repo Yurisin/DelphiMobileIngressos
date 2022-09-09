@@ -22,6 +22,7 @@ type
     Image5: TImage;
     Image6: TImage;
     procedure LabelEditPerfilClick(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,6 +37,12 @@ implementation
 {$R *.fmx}
 
 uses Login, UDM, Ingressos, Principal, Cadastro, EditUsuario;
+
+procedure TFormUsuario.Image6Click(Sender: TObject);
+begin
+  FormHome.Show;
+  FormUsuario.Hide();
+end;
 
 procedure TFormUsuario.LabelEditPerfilClick(Sender: TObject);
 begin

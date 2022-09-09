@@ -1,0 +1,242 @@
+object FormBD: TFormBD
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Users\ybotelho.UNIVEL\Desktop\EvAk - Mobile\BD\Banco' +
+        '.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    AfterConnect = FDConnection1AfterConnect
+    BeforeConnect = FDConnection1BeforeConnect
+    Left = 32
+    Top = 16
+  end
+  object FDQueryPessoa: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from pessoa'
+      'where email =:pNome')
+    Left = 152
+    Top = 32
+    ParamData = <
+      item
+        Name = 'PNOME'
+        DataType = ftString
+        ParamType = ptInput
+        Value = ''
+      end>
+    object FDQueryPessoaid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryPessoanome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryPessoacpf: TStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Size = 11
+    end
+    object FDQueryPessoatelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 13
+    end
+    object FDQueryPessoacep: TStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 10
+    end
+    object FDQueryPessoaendereco: TStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 60
+    end
+    object FDQueryPessoacidade: TStringField
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      Size = 60
+    end
+    object FDQueryPessoauf: TStringField
+      FieldName = 'uf'
+      Origin = 'uf'
+      FixedChar = True
+      Size = 2
+    end
+    object FDQueryPessoabairro: TStringField
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      Size = 60
+    end
+    object FDQueryPessoaemail: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 60
+    end
+    object FDQueryPessoausuario: TStringField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 60
+    end
+    object FDQueryPessoaimg_usuario: TBlobField
+      FieldName = 'img_usuario'
+      Origin = 'img_usuario'
+    end
+    object FDQueryPessoasenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 300
+    end
+  end
+  object FDQueryIngresso: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ingresso')
+    Left = 64
+    Top = 72
+    object FDQueryIngressoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryIngressonome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryIngressovalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryIngressodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 300
+    end
+    object FDQueryIngressoimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
+    end
+    object FDQueryIngressoquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object FDQueryIngressofavorito: TStringField
+      FieldName = 'favorito'
+      Origin = 'favorito'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object FDQueryFavoritos: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ingresso where id = :pIdIngresso'
+      'and favorito = '#39'S'#39)
+    Left = 128
+    Top = 128
+    ParamData = <
+      item
+        Name = 'PIDINGRESSO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 1
+      end>
+    object FDQueryFavoritosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryFavoritosnome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryFavoritosvalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryFavoritosdescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 300
+    end
+    object FDQueryFavoritosimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
+    end
+    object FDQueryFavoritosquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object FDQueryFavoritosfavorito: TStringField
+      FieldName = 'favorito'
+      Origin = 'favorito'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object FDQueryListaFavoritos: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ingresso where favorito = '#39'S'#39)
+    Left = 232
+    Top = 72
+    object FDQueryListaFavoritosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryListaFavoritosnome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryListaFavoritosvalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryListaFavoritosdescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 300
+    end
+    object FDQueryListaFavoritosimg_ingresso: TBlobField
+      FieldName = 'img_ingresso'
+      Origin = 'img_ingresso'
+    end
+    object FDQueryListaFavoritosquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object FDQueryListaFavoritosfavorito: TStringField
+      FieldName = 'favorito'
+      Origin = 'favorito'
+      FixedChar = True
+      Size = 1
+    end
+  end
+end
