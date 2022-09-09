@@ -23,6 +23,7 @@ type
     Image6: TImage;
     procedure LabelEditPerfilClick(Sender: TObject);
     procedure Image6Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,7 +37,14 @@ implementation
 
 {$R *.fmx}
 
-uses Login, UDM, Ingressos, Principal, Cadastro, EditUsuario;
+uses Login, UDM, Ingressos, Principal, Cadastro, EditUsuario, Favoritos;
+
+procedure TFormUsuario.Image4Click(Sender: TObject);
+begin
+  FormFavoritos.Show;
+  FormUsuario.Hide();
+
+end;
 
 procedure TFormUsuario.Image6Click(Sender: TObject);
 begin

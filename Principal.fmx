@@ -708,6 +708,7 @@ object FormHome: TFormHome
       Size.Width = 48.000000000000000000
       Size.Height = 56.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image3Click
     end
     object Image4: TImage
       MultiResBitmap = <

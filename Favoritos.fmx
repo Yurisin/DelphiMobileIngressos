@@ -8,6 +8,7 @@ object FormFavoritos: TFormFavoritos
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 3
   object LayoutLista: TLayout
     Align = Top
@@ -1091,6 +1092,7 @@ object FormFavoritos: TFormFavoritos
       Size.Width = 50.000000000000000000
       Size.Height = 56.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image4Click
     end
     object Image5: TImage
       MultiResBitmap = <
@@ -1363,6 +1365,7 @@ object FormFavoritos: TFormFavoritos
       Size.Width = 50.000000000000000000
       Size.Height = 56.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image5Click
     end
   end
   object ToolBar1: TToolBar
@@ -1378,7 +1381,7 @@ object FormFavoritos: TFormFavoritos
       Size.PlatformDefault = False
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.HorzAlign = Center
-      Text = 'Eventos Pr'#243'ximos'
+      Text = 'Favoritos'
       TabOrder = 0
     end
   end

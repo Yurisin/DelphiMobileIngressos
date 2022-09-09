@@ -689,6 +689,7 @@ object FormEditUsuario: TFormEditUsuario
       Size.Width = 48.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
+      OnClick = Image4Click
     end
     object Image5: TImage
       MultiResBitmap = <

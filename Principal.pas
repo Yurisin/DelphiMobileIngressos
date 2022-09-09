@@ -21,6 +21,7 @@ type
     Image5: TImage;
     procedure FormShow(Sender: TObject);
     procedure Image4Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
   private
     { Private declarations }
      procedure CarregarListaProdutos(id: integer; nome, descricao: string;
@@ -40,7 +41,7 @@ implementation
 
 {$R *.fmx}
 
-uses Login, UDM, Ingressos, Cadastro, EditUsuario, Usuario;
+uses Login, UDM, Ingressos, Cadastro, EditUsuario, Usuario, Favoritos;
 
 { TFormHome }
 
@@ -242,6 +243,12 @@ FormBD.FDQueryIngresso.Close;
 end;
 
 end;
+procedure TFormHome.Image3Click(Sender: TObject);
+begin
+  FormFavoritos.Show;
+  FormHome.Hide();
+end;
+
 procedure TFormHome.Image4Click(Sender: TObject);
 begin
   FormUsuario.Show;
