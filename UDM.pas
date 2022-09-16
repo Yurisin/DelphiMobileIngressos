@@ -53,6 +53,8 @@ type
     FDQueryListaFavoritosimg_ingresso: TBlobField;
     FDQueryListaFavoritosquantidade: TIntegerField;
     FDQueryListaFavoritosfavorito: TStringField;
+    FDQueryPedido: TFDQuery;
+    FDQueryItemPedido: TFDQuery;
     procedure FDConnection1AfterConnect(Sender: TObject);
     procedure FDConnection1BeforeConnect(Sender: TObject);
   private

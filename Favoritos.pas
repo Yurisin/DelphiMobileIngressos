@@ -145,6 +145,7 @@ end;
 
 procedure TFormFavoritos.FormShow(Sender: TObject);
 begin
+  ScrollBoxLista.Content.DeleteChildren;
   GetListaFavoritos();
 end;
 

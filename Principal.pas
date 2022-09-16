@@ -228,6 +228,7 @@ end;
 
 procedure TFormHome.FormShow(Sender: TObject);
 begin
+   ScrollBoxLista.Content.DeleteChildren;
    GetProdutosBase;
 end;
 

@@ -151,7 +151,7 @@ object FormBD: TFormBD
     SQL.Strings = (
       'select * from ingresso where id = :pIdIngresso'
       'and favorito = '#39'S'#39)
-    Left = 128
+    Left = 136
     Top = 128
     ParamData = <
       item
@@ -201,12 +201,13 @@ object FormBD: TFormBD
     Connection = FDConnection1
     SQL.Strings = (
       'select * from ingresso where favorito = '#39'S'#39)
-    Left = 232
+    Left = 224
     Top = 72
     object FDQueryListaFavoritosid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQueryListaFavoritosnome: TStringField
       FieldName = 'nome'
@@ -238,5 +239,17 @@ object FormBD: TFormBD
       FixedChar = True
       Size = 1
     end
+  end
+  object FDQueryPedido: TFDQuery
+    Connection = FDConnection1
+    Left = 296
+    Top = 136
+  end
+  object FDQueryItemPedido: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from itemPedido')
+    Left = 296
+    Top = 32
   end
 end
