@@ -56,6 +56,8 @@ procedure TFormUsuario.LabelEditPerfilClick(Sender: TObject);
 begin
   FormEditUsuario.Show;
   FormUsuario.Hide();
+
+
 end;
 
 end.

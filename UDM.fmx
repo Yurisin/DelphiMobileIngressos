@@ -242,14 +242,14 @@ object FormBD: TFormBD
   end
   object FDQueryPedido: TFDQuery
     Connection = FDConnection1
-    Left = 296
+    Left = 312
     Top = 136
   end
   object FDQueryItemPedido: TFDQuery
     Connection = FDConnection1
     SQL.Strings = (
       'select * from itemPedido')
-    Left = 296
+    Left = 312
     Top = 32
   end
 end

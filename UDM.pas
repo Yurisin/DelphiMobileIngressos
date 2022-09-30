@@ -93,8 +93,8 @@ begin
   strSQL := EmptyStr;
   strSQL := ' create table IF NOT EXISTS ingresso( ' + //
             ' id integer not null primary key autoincrement, ' + //
-            ' dataevento datetime,                           ' + //
             ' nome varchar(40),                              ' + //
+            ' descricao varchar(300),                        ' + //
             ' valor numeric(14,2),                            ' + //
             ' quantidade integer,                            ' + //
             ' img_ingresso blob) ';
