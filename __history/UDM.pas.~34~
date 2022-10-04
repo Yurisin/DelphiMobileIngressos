@@ -17,14 +17,44 @@ type
     FDConnection1: TFDConnection;
     FDQueryPessoa: TFDQuery;
     FDQueryIngresso: TFDQuery;
+    FDQueryPessoaid: TFDAutoIncField;
+    FDQueryPessoanome: TStringField;
+    FDQueryPessoacpf: TStringField;
+    FDQueryPessoatelefone: TStringField;
+    FDQueryPessoacep: TStringField;
+    FDQueryPessoaendereco: TStringField;
+    FDQueryPessoacidade: TStringField;
+    FDQueryPessoauf: TStringField;
+    FDQueryPessoabairro: TStringField;
+    FDQueryPessoaemail: TStringField;
+    FDQueryPessoausuario: TStringField;
+    FDQueryPessoaimg_usuario: TBlobField;
+    FDQueryPessoasenha: TStringField;
     FDQueryIngressoid: TFDAutoIncField;
     FDQueryIngressonome: TStringField;
     FDQueryIngressovalor: TBCDField;
+    FDQueryIngressodescricao: TStringField;
     FDQueryIngressoimg_ingresso: TBlobField;
     FDQueryIngressoquantidade: TIntegerField;
-    FDQueryPessoaid: TFDAutoIncField;
-    FDQueryPessoaemail: TStringField;
-    FDQueryPessoasenha: TStringField;
+    FDQueryFavoritos: TFDQuery;
+    FDQueryFavoritosid: TFDAutoIncField;
+    FDQueryFavoritosnome: TStringField;
+    FDQueryFavoritosvalor: TBCDField;
+    FDQueryFavoritosdescricao: TStringField;
+    FDQueryFavoritosimg_ingresso: TBlobField;
+    FDQueryFavoritosquantidade: TIntegerField;
+    FDQueryFavoritosfavorito: TStringField;
+    FDQueryIngressofavorito: TStringField;
+    FDQueryListaFavoritos: TFDQuery;
+    FDQueryListaFavoritosid: TFDAutoIncField;
+    FDQueryListaFavoritosnome: TStringField;
+    FDQueryListaFavoritosvalor: TBCDField;
+    FDQueryListaFavoritosdescricao: TStringField;
+    FDQueryListaFavoritosimg_ingresso: TBlobField;
+    FDQueryListaFavoritosquantidade: TIntegerField;
+    FDQueryListaFavoritosfavorito: TStringField;
+    FDQueryPedido: TFDQuery;
+    FDQueryItemPedido: TFDQuery;
     procedure FDConnection1AfterConnect(Sender: TObject);
     procedure FDConnection1BeforeConnect(Sender: TObject);
   private
@@ -63,8 +93,8 @@ begin
   strSQL := EmptyStr;
   strSQL := ' create table IF NOT EXISTS ingresso( ' + //
             ' id integer not null primary key autoincrement, ' + //
-            ' dataevento datetime,                           ' + //
             ' nome varchar(40),                              ' + //
+            ' descricao varchar(300),                        ' + //
             ' valor numeric(14,2),                            ' + //
             ' quantidade integer,                            ' + //
             ' img_ingresso blob) ';

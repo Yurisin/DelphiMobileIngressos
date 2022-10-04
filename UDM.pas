@@ -84,20 +84,21 @@ begin
            'cidade varchar(60),                            ' + //
            'uf char(2),                                    ' + //
            'bairro varchar(60),                            ' + //
-           'usuario varchar(60),                           ' + //
            'email varchar(60),                             ' + //
-           'senha varchar(40),                            ' + //
-           'img_usuario blob)';
-  FDConnection1.ExecSQL(strSQL);
+           'usuario varchar(60),                           ' + //
+           'img_usuario blob,                            ' + //
+           'senha varchar(40) )';
+           FDConnection1.ExecSQL(strSQL);
 
   strSQL := EmptyStr;
   strSQL := ' create table IF NOT EXISTS ingresso( ' + //
             ' id integer not null primary key autoincrement, ' + //
             ' nome varchar(40),                              ' + //
+            ' valor numeric(14,2),                           ' + //
             ' descricao varchar(300),                        ' + //
-            ' valor numeric(14,2),                            ' + //
+            ' img_ingresso blob,                           ' + //
             ' quantidade integer,                            ' + //
-            ' img_ingresso blob) ';
+            ' favorito char(1))';
   FDConnection1.ExecSQL(strSQL);
 
   FDQueryPessoa.Active := true;

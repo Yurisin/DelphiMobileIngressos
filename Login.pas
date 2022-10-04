@@ -53,7 +53,7 @@ begin
     begin
       if not Assigned(FormHome) then
       Application.CreateForm(TFormHome, FormHome);
-      ShowMessage('OK');
+      ShowMessage('Bem-Vindos a Eventos Aqui!');
       FormHome.Show;
 
 

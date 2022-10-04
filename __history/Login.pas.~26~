@@ -42,22 +42,27 @@ uses Ingressos, UDM, Cadastro, Principal;
 
 procedure TFormLogin.Label3Click(Sender: TObject);
 var
-  senha : string;
+  senha:string;
 begin
     senha := SHA1(EditSenha.Text);
     FormBD.FDQueryPessoa.Close;
-    FormBD.FDQueryPessoa.ParamByName('pnome').AsString := EditEmail.Text;
+    FormBD.FDQueryPessoa.ParamByName('pNome').AsString := EditEmail.Text;
     FormBD.FDQueryPessoa.Open();
 
-    if not (FormBD.FDQueryPessoa.IsEmpty) and (FormBD.FDQueryPessoaSenha.AsString = senha) then
+    if not (FormBD.FDQueryPessoa.IsEmpty) and (FormBD.FDQueryPessoasenha.AsString = senha) then
     begin
       if not Assigned(FormHome) then
       Application.CreateForm(TFormHome, FormHome);
+      ShowMessage('OK');
       FormHome.Show;
+
+
     end
     else
     begin
-      ShowMessage('Login ou Senha Incorreto');
+    ShowMessage('Login ou Senha Incorreto');
+    abort;
+
     end;
  end;
 
